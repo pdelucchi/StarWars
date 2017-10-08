@@ -1,0 +1,30 @@
+import StarWars.*
+
+describe "Tests del Ejercicio de StarWars"{
+	
+var ladoLuz = new LadoDeLaLuz()
+var ladoOscuro = new LadoOscuro()
+
+var sableDeLuz = new SableDeLuz(250)
+
+var anakin = new Maestro(100, 80, sableDeLuz , 27700, ladoLuz)
+var darthVader = new Maestro(100, 80,sableDeLuz,  27700, ladoOscuro)
+var abandono = new Situacion(-2000) 	
+var arrepentimiento = new Situacion(5000) 	
+
+
+
+
+test "testAnakinPasaAlLadoOscuro" {
+	
+	anakin.vivirSituacion(abandono)
+	assert.equals("StarWars.LadoOscuro", darthVader.deQueLadoEsta().className())
+}
+
+test "testVaderPasaAlLadoLuminoso" {
+	
+	darthVader.vivirSituacion(arrepentimiento)
+	assert.equals("StarWars.LadoDeLaLuz", darthVader.deQueLadoEsta().className())
+}
+
+}
